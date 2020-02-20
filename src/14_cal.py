@@ -31,10 +31,25 @@ import sys
 import calendar
 from datetime import datetime
 
+args = sys.argv
+
 c = calendar.TextCalendar(calendar.SUNDAY)
 
-input_month = input('Enter MM: ')
-input_year = input('Enter YYYY: ')
+currentMonth = datetime.now().month
+currentYear = datetime.now().year
+
+print(currentMonth)
+
+if len(args) > 1:
+    input_month = args[1]
+else:
+    input_month = currentMonth
+
+if len(args) > 2:
+    input_year = args[2]
+else:
+    input_year = currentYear
+
 
 
 date = c.formatmonth(int(input_year), int(input_month))
